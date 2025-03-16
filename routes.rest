@@ -1,0 +1,18 @@
+// LOCALHOST
+### Get all contacts
+Send Request
+GET http://localhost:3000/contacts
+
+### Get a single contacts
+Send Request
+GET http://localhost:3000/contacts/67d6f8e16694778a10ccc5a7
+
+
+// PRODUCTION
+### Get all contacts
+Send Request
+GET https://ndikum341-api-project.onrender.com/contacts
+
+### Get a single contacts
+Send Request
+GET https://ndikum341-api-project.onrender.com/contacts/67d6f8e16694778a10ccc5a7
