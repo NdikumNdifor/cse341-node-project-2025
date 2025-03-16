@@ -1,0 +1,5 @@
+# Can become very large and should not be pushed to github
+node_modules
+
+# May store sensitive data which shouldn't be exposed
+.env

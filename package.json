@@ -1,0 +1,29 @@
+{
+  "name": "cse341-node-project-2025",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/NdikumNdifor/cse341-node-project-2025#readme",
+  "bugs": {
+    "url": "https://github.com/NdikumNdifor/cse341-node-project-2025/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NdikumNdifor/cse341-node-project-2025.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
