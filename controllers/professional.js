@@ -1,17 +1,15 @@
-const getProfessionalModel = require("../models/professionalModel");
+const getProfessionalModel = require('../models/professionalModel')
 
 const getData = async (req, res, next) => {
-  const user = await getProfessionalModel.getUserData();
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(user);
+  const user = await getProfessionalModel.getUserData()
+  res.setHeader('Content-Type', 'application/json')
+  res.status(200).json(user)
 
   // const user = await getProfessionalModel.getUserData();
   // return res.json(user);
 }
 
-module.exports = {getData};
-
-
+module.exports = { getData }
 
 // const mongodb = require('../database/connect');
 

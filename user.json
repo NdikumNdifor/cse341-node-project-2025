@@ -1,4 +1,5 @@
-[{
+[
+  {
     "_id": {
       "$oid": "621fe1f527d68ebb24438395"
     },
@@ -22,6 +23,5 @@
       "text": "GitHub"
     },
     "contactText": "Feel free to contact him at birchn@byui.edu if you'd like for him to work for you!"
-  }]
-
-  
+  }
+]
