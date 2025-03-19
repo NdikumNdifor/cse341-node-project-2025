@@ -8,6 +8,7 @@ const professionalRoute = require('./routes/professionalRoutes')
 const contactsRoute = require('./routes/contactsRoute')
 const contactRoute = require('./routes/contactsRoute')
 const addToContactRoute = require('./routes/contactsRoute')
+const updateContactRoute = require('./routes/contactsRoute')
 
 const port = process.env.PORT || 8080
 const host = process.env.HOST
@@ -26,6 +27,8 @@ app.use('/', contactsRoute)
 app.use('/', contactRoute)
 // Route to add a contact(s) to the contacts collection
 app.use('/', addToContactRoute)
+// Route to delete a contact
+app.use('/', updateContactRoute)
 
 /* ***********************
  * Log statement to confirm server operation

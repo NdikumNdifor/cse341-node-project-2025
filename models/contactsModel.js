@@ -24,4 +24,24 @@ const addNewContact = async (contactData) => {
   return result.insertedId
 }
 
-module.exports = { getAllContacts, getOneContact, addNewContact }
+const  updateContact = async (contactId, updatedData) => {
+  if(!ObjectId.isValid(contactId)){
+    throw new Error("The contact ID is invalid")
+  }
+  const {firstName, lastName, email, favoriteColor, birthDay} = updatedData
+  // if(!firstName || !lastName || !email || !favoriteColor || !birthDay){
+  //   throw new Error("You must insert all the fields, they are all required")
+  // }
+  const result = await mongodb.getDb().collection('contacts').updateOne({_id: new ObjectId(contactId)}, { $set: updatedData })
+  if (result.matchedCount === 0) {
+    throw new Error("No contact found with the given ID");
+  }
+
+  if (result.modifiedCount === 0) {
+    return { message: "No changes made. The contact data is already up to date." };
+  }
+
+  return { message: "Contact updated successfully", modifiedCount: result.modifiedCount };
+}
+
+module.exports = { getAllContacts, getOneContact, addNewContact, updateContact}

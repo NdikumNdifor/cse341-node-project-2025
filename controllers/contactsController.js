@@ -2,6 +2,7 @@ const { application } = require('express')
 const contactsModel = require('../models/contactsModel')
 const singleContactModel = require('../models/contactsModel')
 const addNewContactModel = require('../models/contactsModel')
+const updateContactModel = require('../models/contactsModel')
 
 const getContacts = async (req, res) => {
   const contacts = await contactsModel.getAllContacts()
@@ -26,7 +27,19 @@ const createNewContact = async (req, res) => {
   }
 }
 
-module.exports = { getContacts, getContactById, createNewContact}
+const modifyContact = async (req, res) => {
+  try{
+    const updateId = req.params.id
+    const updatedData = req.body
+    const updatedContact = await updateContactModel.updateContact(updateId, updatedData)
+    res.setHeader("Content-Type", "application/json")
+    res.status(200).json({message: "Contact updated sucessfully", updatedContact})
+  }catch(error) {
+    res.status(400).json({error: error.message})
+  }
+}
+  
+module.exports = { getContacts, getContactById, createNewContact, modifyContact}
 
 
 
