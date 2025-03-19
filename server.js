@@ -7,6 +7,7 @@ const mongodb = require('./database/connect')
 const professionalRoute = require('./routes/professionalRoutes')
 const contactsRoute = require('./routes/contactsRoute')
 const contactRoute = require('./routes/contactsRoute')
+const addToContactRoute = require('./routes/contactsRoute')
 
 const port = process.env.PORT || 8080
 const host = process.env.HOST
@@ -23,6 +24,8 @@ app.use('/', professionalRoute)
 app.use('/', contactsRoute)
 // Route to get a contantact based on the id
 app.use('/', contactRoute)
+// Route to add a contact(s) to the contacts collection
+app.use('/', addToContactRoute)
 
 /* ***********************
  * Log statement to confirm server operation

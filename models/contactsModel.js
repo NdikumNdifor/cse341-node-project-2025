@@ -15,4 +15,13 @@ const getOneContact = async (contactId) => {
     .findOne({ _id: new ObjectId(contactId) })
 }
 
-module.exports = { getAllContacts, getOneContact }
+const addNewContact = async (contactData) => {
+  const {firstName, lastName, email, favoriteColor, birthDay} = contactData
+  if(!firstName || !lastName || !email || !favoriteColor || !birthDay){
+    throw new Error("You must insert all the fields, they are all required")
+  }
+  const result = await mongodb.getDb().collection('contacts').insertOne(contactData)
+  return result.insertedId
+}
+
+module.exports = { getAllContacts, getOneContact, addNewContact }
