@@ -1,8 +1,9 @@
-const { application } = require('express')
+const { application, response } = require('express')
 const contactsModel = require('../models/contactsModel')
 const singleContactModel = require('../models/contactsModel')
 const addNewContactModel = require('../models/contactsModel')
 const updateContactModel = require('../models/contactsModel')
+const deleteContactModel = require('../models/contactsModel')
 
 const getContacts = async (req, res) => {
   const contacts = await contactsModel.getAllContacts()
@@ -38,8 +39,19 @@ const modifyContact = async (req, res) => {
     res.status(400).json({error: error.message})
   }
 }
+
+const removeContact = async (req, res) => {
+  try{
+    const deletedId = req.params.id
+    const deletedContact = await deleteContactModel.deleteContact(deletedId)
+    res.setHeader('Content-Type', 'application/json')
+    res.status(200).json({message:"Contact deleted successfully", deletedContact})
+  }catch(error) {
+    res.status(400).json({error:error.message})
+  }
+}
   
-module.exports = { getContacts, getContactById, createNewContact, modifyContact}
+module.exports = { getContacts, getContactById, createNewContact, modifyContact, removeContact}
 
 
 

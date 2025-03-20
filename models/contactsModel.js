@@ -44,4 +44,16 @@ const  updateContact = async (contactId, updatedData) => {
   return { message: "Contact updated successfully", modifiedCount: result.modifiedCount };
 }
 
-module.exports = { getAllContacts, getOneContact, addNewContact, updateContact}
+
+const deleteContact =  async (contactId) => {
+    if(!ObjectId.isValid(contactId)){
+      throw new Error("No contact found with this given ID")
+    }
+    const result = await mongodb.getDb().collection('contacts').deleteOne({_id: new ObjectId(contactId)})
+    if( result.deletedCount === 0){
+      throw new Error("No contact found with this given ID")
+    }
+    return {message: "Contact deleted successfully", deletedCount: result.deletedCount }
+}
+
+module.exports = { getAllContacts, getOneContact, addNewContact, updateContact, deleteContact}
