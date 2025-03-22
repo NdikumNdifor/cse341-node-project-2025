@@ -2,8 +2,8 @@ const express = require('express')
 const router = new express.Router()
 const contactsController = require('../controllers/contactsController')
 const contactController = require('../controllers/contactsController')
-const addToContactsController = require("../controllers/contactsController")
-const updateContactController = require("../controllers/contactsController")
+const addToContactsController = require('../controllers/contactsController')
+const updateContactController = require('../controllers/contactsController')
 const deleteContactController = require('../controllers/contactsController')
 
 //Routes for Api documentation.

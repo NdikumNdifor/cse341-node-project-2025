@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongodb = require('./database/connect')
-const cors = require('cors');
+const cors = require('cors')
 
 const professionalRoute = require('./routes/professionalRoutes')
 const contactsRoute = require('./routes/contactsRoute')
@@ -20,13 +20,13 @@ app.use(bodyParser.json()).use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   next()
 })
-app.use(cors()); // Enable CORS for all requests
+app.use(cors()) // Enable CORS for all requests
 
 // Code for swagger API documentation
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+const swaggerUi = require('swagger-ui-express')
+const swaggerDocument = require('./swagger.json')
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 // Route to retrieve professional data from user collection in mongodb database.
 app.use('/', professionalRoute)

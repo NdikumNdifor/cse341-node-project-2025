@@ -28,12 +28,14 @@ const createNewContact = async (req, res) => {
       required: true,
       schema: { $ref: '#/definitions/Contact' }
   } */
-  try{
+  try {
     const newContactId = await addNewContactModel.addNewContact(req.body)
     res.setHeader('Content-Type', 'application/json')
-    res.status(201).json({message: 'Contact created succesfully', id: newContactId})
-  }catch(error) {
-    res.status(400).json({error: error.message})
+    res
+      .status(201)
+      .json({ message: 'Contact created succesfully', id: newContactId })
+  } catch (error) {
+    res.status(400).json({ error: error.message })
   }
 }
 
@@ -45,38 +47,43 @@ const modifyContact = async (req, res) => {
       required: true,
       schema: { $ref: '#/definitions/Contact' }
   } */
-  try{
+  try {
     const updateId = req.params.id
     const updatedData = req.body
-    const updatedContact = await updateContactModel.updateContact(updateId, updatedData)
-    res.setHeader("Content-Type", "application/json")
-    res.status(200).json({message: "Contact updated sucessfully", updatedContact})
-  }catch(error) {
-    res.status(400).json({error: error.message})
+    const updatedContact = await updateContactModel.updateContact(
+      updateId,
+      updatedData
+    )
+    res.setHeader('Content-Type', 'application/json')
+    res
+      .status(200)
+      .json({ message: 'Contact updated sucessfully', updatedContact })
+  } catch (error) {
+    res.status(400).json({ error: error.message })
   }
 }
 
 const removeContact = async (req, res) => {
   //#swagger.tags = ['Contacts']
-  try{
+  try {
     const deletedId = req.params.id
     const deletedContact = await deleteContactModel.deleteContact(deletedId)
     res.setHeader('Content-Type', 'application/json')
-    res.status(200).json({message:"Contact deleted successfully", deletedContact})
-  }catch(error) {
-    res.status(400).json({error:error.message})
+    res
+      .status(200)
+      .json({ message: 'Contact deleted successfully', deletedContact })
+  } catch (error) {
+    res.status(400).json({ error: error.message })
   }
 }
-  
-module.exports = { getContacts, getContactById, createNewContact, modifyContact, removeContact}
 
-
-
-
-
-
-
-
+module.exports = {
+  getContacts,
+  getContactById,
+  createNewContact,
+  modifyContact,
+  removeContact
+}
 
 // const { addNewContact } = require('../models/contactModel');
 
