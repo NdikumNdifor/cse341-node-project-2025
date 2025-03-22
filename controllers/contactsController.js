@@ -6,12 +6,14 @@ const updateContactModel = require('../models/contactsModel')
 const deleteContactModel = require('../models/contactsModel')
 
 const getContacts = async (req, res) => {
+  //#swagger.tags = ['Contacts']
   const contacts = await contactsModel.getAllContacts()
   res.setHeader('Content-Type', 'application/json')
   res.status(200).json(contacts)
 }
 
 const getContactById = async (req, res) => {
+  //#swagger.tags = ['Contacts']
   const contactId = req.params.id
   const contact = await singleContactModel.getOneContact(contactId)
   res.setHeader('Content-Type', 'application/json')
@@ -19,6 +21,13 @@ const getContactById = async (req, res) => {
 }
 
 const createNewContact = async (req, res) => {
+  //#swagger.tags = ['Contacts']
+  /* #swagger.parameters['body'] = {
+      in: 'body',
+      description: 'Add a new contact',
+      required: true,
+      schema: { $ref: '#/definitions/Contact' }
+  } */
   try{
     const newContactId = await addNewContactModel.addNewContact(req.body)
     res.setHeader('Content-Type', 'application/json')
@@ -29,6 +38,13 @@ const createNewContact = async (req, res) => {
 }
 
 const modifyContact = async (req, res) => {
+  //#swagger.tags = ['Contacts']
+  /* #swagger.parameters['body'] = {
+      in: 'body',
+      description: 'Add a new contact',
+      required: true,
+      schema: { $ref: '#/definitions/Contact' }
+  } */
   try{
     const updateId = req.params.id
     const updatedData = req.body
@@ -41,6 +57,7 @@ const modifyContact = async (req, res) => {
 }
 
 const removeContact = async (req, res) => {
+  //#swagger.tags = ['Contacts']
   try{
     const deletedId = req.params.id
     const deletedContact = await deleteContactModel.deleteContact(deletedId)

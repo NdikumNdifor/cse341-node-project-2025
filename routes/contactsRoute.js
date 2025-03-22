@@ -6,6 +6,9 @@ const addToContactsController = require("../controllers/contactsController")
 const updateContactController = require("../controllers/contactsController")
 const deleteContactController = require('../controllers/contactsController')
 
+//Routes for Api documentation.
+router.use('/', require('./swagger'))
+
 // Get all contacts in the in the contacts collection
 router.get('/contacts', contactsController.getContacts)
 // Get a single contact based on Id
