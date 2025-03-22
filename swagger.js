@@ -5,8 +5,8 @@ const doc = {
     title: 'Week02 CSE341 API Docs',
     description: 'Contacts API'
   },
-  host: 'localhost:3000',
-  schemes: ['http'],
+  host: 'ndikum341-api-project.onrender.com',
+  schemes: ['https'],
   definitions: {
     Contact: {
       // Define contact schema
