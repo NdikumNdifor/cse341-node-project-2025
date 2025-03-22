@@ -1,18 +1,74 @@
 // LOCALHOST
 ### Get all contacts
-Send Request
 GET http://localhost:3000/contacts
+Accept: application/json
 
 ### Get a single contacts
-Send Request
 GET http://localhost:3000/contacts/67d6f8e16694778a10ccc5a7
+Accept: application/json
+
+### Add a contacts to collection
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "johndoe@example.com",
+  "favoriteColor": "Blue",
+  "birthDay": "12/12/1999"
+}
+
+### Modify a contact
+PUT http://localhost:3000/contacts/67defd30b1ac9fc64c5831f2
+Content-Type: application/json
+
+{
+  "firstName": "Johnny",
+  "lastName": "Doe Doe",
+  "email": "johndoe@example.com",
+  "favoriteColor": "Blue",
+  "birthDay": "12/12/1999"
+}
+
+### Remove a contact from collection
+DELETE http://localhost:3000/contacts/67defd30b1ac9fc64c5831f2 
+
 
 
 // PRODUCTION
 ### Get all contacts
-Send Request
 GET https://ndikum341-api-project.onrender.com/contacts
+Accept: application/json
 
 ### Get a single contacts
-Send Request
 GET https://ndikum341-api-project.onrender.com/contacts/67d6f8e16694778a10ccc5a7
+Accept: application/json
+
+### Add a contacts to collection
+POST https://ndikum341-api-project.onrender.com/contacts
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "johndoe@example.com",
+  "favoriteColor": "Blue",
+  "birthDay": "12/12/1999"
+}
+
+### Modify a contact
+PUT https://ndikum341-api-project.onrender.com/contacts/67df0020ca6aa5a943cb17c4
+Content-Type: application/json
+
+{
+  "firstName": "Johnny",
+  "lastName": "Doe Doe",
+  "email": "johndoe@example.com",
+  "favoriteColor": "Blue",
+  "birthDay": "12/12/1999"
+}
+
+### Remove a contact from collection
+DELETE https://ndikum341-api-project.onrender.com/contacts/67df0020ca6aa5a943cb17c4 
+
